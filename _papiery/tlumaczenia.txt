@@ -1,0 +1,5 @@
+A_49.01_ANTI
+
+UPDATE test8_bobkor SET text = REPLACE(text,'VZ_28.01_ZBR6.TH6ramka_rodzaj	[SPACER BAR] Type','TEST KORDI')  WHERE langue = 'ENG'
+VA_49.01_ANTIramka_rodzaj	[SPACER BAR] Type
+VZ_28.01_ZBR6.TH6ramka_rodzaj	[SPACER BAR] Type
