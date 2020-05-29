@@ -3,6 +3,6 @@
 @section('content')
 
 <div>
-    <profilegenerator></profilegenerator>
+    <smooviogenerator></smooviogenerator>
 </div>
 @endsection

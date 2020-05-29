@@ -1932,285 +1932,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListwyGenerator.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ListwyGenerator.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      strony: [{
-        kod: '1K',
-        opis: '2-stronny'
-      }],
-      output: [],
-      kolory: [],
-      profile: [],
-      bazy: [{
-        kod: 0,
-        opis: 'białe'
-      }, {
-        kod: 7,
-        opis: 'brąz'
-      }, {
-        kod: 8,
-        opis: 'karmel'
-      }, {
-        kod: 9,
-        opis: 'antracyt'
-      }]
-    };
-  },
-  methods: {
-    generateStrict: function generateStrict() {
-      var stronakod = '';
-      var kolorkod = '';
-      var self = this;
-
-      var _iterator = _createForOfIteratorHelper(this.profile),
-          _step;
-
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var profil = _step.value;
-
-          var _iterator2 = _createForOfIteratorHelper(this.strony),
-              _step2;
-
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var strona = _step2.value;
-
-              var _iterator3 = _createForOfIteratorHelper(this.kolory),
-                  _step3;
-
-              try {
-                for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-                  var kolor = _step3.value;
-                  stronakod = strona.kod;
-                  console.log(kolor.kod);
-
-                  if (['4', '5', '6', '7', '8', '9'].indexOf(kolor.kod) >= 0) {
-                    console.log('działa if');
-                    stronakod = '';
-
-                    if (strona.kod == '1K') {
-                      kolorkod = '1' + kolor.kod;
-                    }
-
-                    if (strona.kod == '2K') {
-                      kolorkod = '2' + kolor.kod;
-                    }
-                  } else {
-                    stronakod = '-' + strona.kod;
-                    kolorkod = kolor.kod;
-                  }
-
-                  var kod = profil.kod + '-' + kolor.bazakod + '-2' + stronakod + '-' + kolorkod;
-                  var opis = profil.opis + ' ' + kolor.bazaopis + ' uszczelka czarna ' + kolor.opis;
-                  var cenabase = profil.cena2k;
-
-                  var _cena = Math.round(parseFloat(cenabase.replace(',', '.')) * (1 + parseFloat(kolor.doplata) / 100) * 100) / 100;
-
-                  _cena = _cena.toString().replace('.', ',');
-                  var object = {
-                    kod: kod,
-                    opis: opis,
-                    cena: _cena
-                  };
-                  this.output.push(object);
-                }
-              } catch (err) {
-                _iterator3.e(err);
-              } finally {
-                _iterator3.f();
-              }
-            }
-          } catch (err) {
-            _iterator2.e(err);
-          } finally {
-            _iterator2.f();
-          }
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      if (this.output.length == 0) {
-        console.log('nic nie ma');
-        setTimeout(function () {
-          self.generateStrict();
-        }, 3000);
-      }
-    },
-    generateAll: function generateAll() {
-      var _iterator4 = _createForOfIteratorHelper(this.profile),
-          _step4;
-
-      try {
-        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-          var profil = _step4.value;
-
-          var _iterator5 = _createForOfIteratorHelper(this.strony),
-              _step5;
-
-          try {
-            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-              var strona = _step5.value;
-
-              var _iterator6 = _createForOfIteratorHelper(this.kolory),
-                  _step6;
-
-              try {
-                for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-                  var kolor = _step6.value;
-
-                  var _iterator7 = _createForOfIteratorHelper(this.bazy),
-                      _step7;
-
-                  try {
-                    for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-                      var baza = _step7.value;
-                      var kod = profil.kod + '-' + baza.kod + '-2-' + strona.kod + '-' + kolor.kod;
-                      var opis = profil.opis + ' ' + kolor.opis + ' ' + strona.opis;
-                      var object = {
-                        kod: kod,
-                        opis: opis,
-                        cena: cena
-                      };
-                      this.output.push(object);
-                    }
-                  } catch (err) {
-                    _iterator7.e(err);
-                  } finally {
-                    _iterator7.f();
-                  }
-                }
-              } catch (err) {
-                _iterator6.e(err);
-              } finally {
-                _iterator6.f();
-              }
-            }
-          } catch (err) {
-            _iterator5.e(err);
-          } finally {
-            _iterator5.f();
-          }
-        }
-      } catch (err) {
-        _iterator4.e(err);
-      } finally {
-        _iterator4.f();
-      }
-    },
-    getKolory: function getKolory() {
-      var self = this;
-      fetch('/kolory').then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        return self.kolory = res;
-      }); //.then((res)=>self.kolory = self.kolory.filter((el)=>el.kod=='4'));
-    },
-    getProfile: function getProfile() {
-      var self = this;
-      fetch('/listwydane').then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        return self.profile = res;
-      });
-    },
-    getData: function getData() {
-      var self = this;
-      this.getKolory();
-      this.getProfile();
-      setTimeout(function () {
-        self.generateStrict();
-      }, 3000); //this.getKolory().then((res) => self.getProfile()).then((res) => self.generateStrict());
-    },
-    selectElementContents: function selectElementContents(el) {
-      var body = document.body,
-          range,
-          sel;
-
-      if (document.createRange && window.getSelection) {
-        range = document.createRange();
-        sel = window.getSelection();
-        sel.removeAllRanges();
-
-        try {
-          range.selectNodeContents(el);
-          sel.addRange(range);
-        } catch (e) {
-          range.selectNode(el);
-          sel.addRange(range);
-        }
-      } else if (body.createTextRange) {
-        range = body.createTextRange();
-        range.moveToElementText(el);
-        range.select();
-      }
-    },
-    copy: function copy() {
-      this.selectElementContents(document.getElementById('tabela'));
-    }
-  },
-  mounted: function mounted() {
-    var self = this;
-    this.getData();
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileGenerator.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SmoovioGenerator.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProfileGenerator.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SmoovioGenerator.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -2252,193 +1976,368 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      strony: [{
-        kod: '1K',
-        opis: ''
-      }, {
-        kod: '2K',
-        opis: '2-stronny'
-      }],
       output: [],
-      kolory: [],
-      profile: [],
-      bazy: [{
-        kod: 0,
-        opis: 'białe'
+      profile: [{
+        kod: '5860',
+        opis: 'ościeżnica 74 / 150 MM',
+        cena: {
+          biale: '9,01',
+          ZW: '10,9',
+          O: '12,25'
+        }
       }, {
-        kod: 7,
-        opis: 'brąz'
+        kod: '5862',
+        opis: 'skrzydło 92 / 74 MM',
+        cena: {
+          biale: '7,63',
+          ZW: '9,05',
+          O: '10,12'
+        }
       }, {
-        kod: 8,
-        opis: 'karmel'
+        kod: '5863',
+        opis: 'profil do szklenia stałego 59,5 / 74 MM',
+        cena: {
+          biale: '5,64',
+          ZW: '6,82',
+          O: '7,26'
+        }
       }, {
-        kod: 9,
-        opis: 'antracyt'
-      }]
+        kod: '5868',
+        opis: 'profil labiryntowy 14 / 31 MM',
+        cena: {
+          biale: '1,69',
+          ZW: '2,54',
+          O: '3,14'
+        }
+      }, {
+        kod: '8036',
+        opis: 'szpros konstrukcyjny 66 / 74 MM',
+        cena: {
+          biale: '4,57',
+          ZW: '5,55',
+          O: '6,85'
+        }
+      }],
+      profile2: [{
+        kod: '5861',
+        opis: 'profil maskujący Smoovio 8 / 63 MM',
+        cena: {
+          biale: '2,32',
+          kolor: '3,36'
+        }
+      }, {
+        kod: '5869',
+        opis: 'profil wyrównujący Smoovio 19,5 / 57 MM',
+        cena: {
+          biale: '2,99',
+          kolor: '3,86'
+        }
+      }],
+      listwy: [{
+        kod: '7116',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,66',
+          bialeczarna: '0,66',
+          kolor: '1,65'
+        }
+      }, {
+        kod: '7180',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,83',
+          bialeczarna: '0,83',
+          kolor: '1,64'
+        }
+      }, {
+        kod: '7134',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,62',
+          bialeczarna: '0,62',
+          kolor: '1,45'
+        }
+      }, {
+        kod: '7131',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,71',
+          bialeczarna: '0,71',
+          kolor: '1,18'
+        }
+      }, {
+        kod: '7156',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,66',
+          bialeczarna: '0,66',
+          kolor: '1,18'
+        }
+      }, {
+        kod: '7142',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,91',
+          bialeczarna: '0,91',
+          kolor: '1,86'
+        }
+      }, {
+        kod: '7146',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '1,16',
+          bialeczarna: '1,16',
+          kolor: '2,01'
+        }
+      }, {
+        kod: '7130',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,74',
+          bialeczarna: '0,74',
+          kolor: '1,44'
+        }
+      }, {
+        kod: '7144',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,76',
+          bialeczarna: '0,76',
+          kolor: '1,76'
+        }
+      }, {
+        kod: '7162',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,64',
+          bialeczarna: '0,64',
+          kolor: '1,39'
+        }
+      }, {
+        kod: '7138',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,86',
+          bialeczarna: '0,86',
+          kolor: '1,66'
+        }
+      }, {
+        kod: '7164',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,74',
+          bialeczarna: '0,74',
+          kolor: '1,39'
+        }
+      }, {
+        kod: '7122',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,79',
+          bialeczarna: '0,79',
+          kolor: '1,59'
+        }
+      }, {
+        kod: '7248',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7242',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7244',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7240',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7236',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7234',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7232',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7226',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7224',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7222',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7220',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '5144',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '5140',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '5136',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '5128',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '5124',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '9999',
+          bialeczarna: '9999',
+          kolor: '9999'
+        }
+      }, {
+        kod: '7120',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '1,38',
+          bialeczarna: '1,38',
+          kolor: '2,34'
+        }
+      }, {
+        kod: '7129',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '1,37',
+          bialeczarna: '1,37',
+          kolor: '2,74'
+        }
+      }, {
+        kod: '7154',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,62',
+          bialeczarna: '0,62',
+          kolor: '1,35'
+        }
+      }, {
+        kod: '7119',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '1,66',
+          bialeczarna: '1,66',
+          kolor: '2,67'
+        }
+      }, {
+        kod: '7196',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,89',
+          bialeczarna: '0,89',
+          kolor: '1,78'
+        }
+      }, {
+        kod: '7194',
+        opis: 'Listwa',
+        cena: {
+          bialeszara: '0,75',
+          bialeczarna: '0,75',
+          kolor: '1,55'
+        }
+      }],
+      strony: [{
+        kod: 'Z',
+        opis: 'zewnątrz'
+      }, {
+        kod: 'W',
+        opis: 'wewnątrz'
+      }, {
+        kod: 'O',
+        opis: 'obustronnie'
+      }],
+      uszczelki: [{
+        kod: 'S',
+        opis: 'usz.szara'
+      }, {
+        kod: 'C',
+        opis: 'usz.czarna'
+      }],
+      grupy: ['0', '6', '10', '20']
     };
   },
   methods: {
-    generateStrict: function generateStrict() {
-      var self = this;
-
-      var _iterator = _createForOfIteratorHelper(this.profile),
-          _step;
-
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var profil = _step.value;
-
-          var _iterator2 = _createForOfIteratorHelper(this.strony),
-              _step2;
-
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-              var strona = _step2.value;
-
-              var _iterator3 = _createForOfIteratorHelper(this.kolory),
-                  _step3;
-
-              try {
-                for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-                  var kolor = _step3.value;
-                  var bazakod = strona.kod == '1K' ? profil.bazabiale : kolor.bazakod;
-
-                  if (bazakod == 'O') {
-                    bazakod = profil.bazabiale;
-                  }
-
-                  var bazaopis = strona.kod == '1K' ? 'białe' : kolor.bazaopis;
-                  var kod = profil.kod + '-' + bazakod + '-2-' + strona.kod + '-' + kolor.kod;
-                  var opis = profil.opis + ' ' + bazaopis + ' uszczelka czarna ' + kolor.opis + ' ' + strona.opis;
-                  var cenabase = strona.kod == '1K' ? profil.cena1k : profil.cena2k;
-
-                  var _cena = Math.round(parseFloat(cenabase.replace(',', '.')) * (1 + parseFloat(kolor.doplata) / 100) * 100) / 100;
-
-                  _cena = _cena.toString().replace('.', ','); //let cena = profil.cena;
-
-                  var object = {
-                    kod: kod,
-                    opis: opis,
-                    cena: _cena
-                  };
-                  this.output.push(object);
-                }
-              } catch (err) {
-                _iterator3.e(err);
-              } finally {
-                _iterator3.f();
-              }
-            }
-          } catch (err) {
-            _iterator2.e(err);
-          } finally {
-            _iterator2.f();
-          }
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      if (this.output.length == 0) {
-        console.log('nic nie ma');
-        setTimeout(function () {
-          self.generateStrict();
-        }, 3000);
-      }
-    },
-    generateAll: function generateAll() {
-      var _iterator4 = _createForOfIteratorHelper(this.profile),
-          _step4;
-
-      try {
-        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-          var profil = _step4.value;
-
-          var _iterator5 = _createForOfIteratorHelper(this.strony),
-              _step5;
-
-          try {
-            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-              var strona = _step5.value;
-
-              var _iterator6 = _createForOfIteratorHelper(this.kolory),
-                  _step6;
-
-              try {
-                for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-                  var kolor = _step6.value;
-
-                  var _iterator7 = _createForOfIteratorHelper(this.bazy),
-                      _step7;
-
-                  try {
-                    for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-                      var baza = _step7.value;
-                      var kod = profil.kod + '-' + baza.kod + '-2-' + strona.kod + '-' + kolor.kod;
-                      var opis = profil.opis + ' ' + kolor.opis + ' ' + strona.opis;
-                      var object = {
-                        kod: kod,
-                        opis: opis,
-                        cena: cena
-                      };
-                      this.output.push(object);
-                    }
-                  } catch (err) {
-                    _iterator7.e(err);
-                  } finally {
-                    _iterator7.f();
-                  }
-                }
-              } catch (err) {
-                _iterator6.e(err);
-              } finally {
-                _iterator6.f();
-              }
-            }
-          } catch (err) {
-            _iterator5.e(err);
-          } finally {
-            _iterator5.f();
-          }
-        }
-      } catch (err) {
-        _iterator4.e(err);
-      } finally {
-        _iterator4.f();
-      }
-    },
-    getKolory: function getKolory() {
-      var self = this;
-      fetch('/kolory').then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        return self.kolory = res;
-      });
-    },
-    getProfile: function getProfile() {
-      var self = this;
-      fetch('/profile').then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        return self.profile = res;
-      });
-    },
-    getData: function getData() {
-      var self = this;
-      this.getKolory();
-      this.getProfile();
-      setTimeout(function () {
-        self.generateStrict();
-      }, 3000); //this.getKolory().then((res) => self.getProfile()).then((res) => self.generateStrict());
-    },
     selectElementContents: function selectElementContents(el) {
       var body = document.body,
           range,
@@ -2462,13 +2361,299 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         range.select();
       }
     },
+    generate: function generate() {
+      var _iterator = _createForOfIteratorHelper(this.profile),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var profil = _step.value;
+
+          var _iterator2 = _createForOfIteratorHelper(this.strony),
+              _step2;
+
+          try {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var strona = _step2.value;
+
+              var _iterator3 = _createForOfIteratorHelper(this.grupy),
+                  _step3;
+
+              try {
+                for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                  var grupa = _step3.value;
+                  var kod = "PG_".concat(profil.kod, "_").concat(strona.kod, "_").concat(grupa);
+                  var opis = "".concat(profil.opis, " ").concat(profil.kod, " ").concat(strona.opis, " usz.czarna ").concat(grupa, "%");
+                  var cena = 0;
+                  var cenabase = 0;
+
+                  if (strona.kod == 'Z' || strona.kod == 'W') {
+                    cenabase = profil.cena.ZW;
+                  }
+
+                  if (strona.kod == 'O') {
+                    cenabase = profil.cena.O;
+                  }
+
+                  cena = Math.round(parseFloat(cenabase.replace(',', '.')) * (1 + parseFloat(grupa) / 100) * 100) / 100;
+                  this.output.push({
+                    kod: kod,
+                    opis: opis,
+                    cena: cena
+                  });
+                }
+              } catch (err) {
+                _iterator3.e(err);
+              } finally {
+                _iterator3.f();
+              }
+            }
+          } catch (err) {
+            _iterator2.e(err);
+          } finally {
+            _iterator2.f();
+          }
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    },
+    generate2: function generate2() {
+      var strony = [{
+        kod: 'D',
+        opis: 'dekor'
+      }];
+
+      var _iterator4 = _createForOfIteratorHelper(this.profile2),
+          _step4;
+
+      try {
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          var profil = _step4.value;
+
+          var _iterator5 = _createForOfIteratorHelper(strony),
+              _step5;
+
+          try {
+            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+              var strona = _step5.value;
+
+              var _iterator6 = _createForOfIteratorHelper(this.grupy),
+                  _step6;
+
+              try {
+                for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+                  var grupa = _step6.value;
+                  var kod = "PG_".concat(profil.kod, "_").concat(strona.kod, "_").concat(grupa);
+                  var opis = "".concat(profil.opis, " ").concat(profil.kod, " ").concat(strona.opis, " usz.czarna ").concat(grupa, "%");
+                  var cenabase = profil.cena.kolor;
+                  var cena = Math.round(parseFloat(cenabase.replace(',', '.')) * (1 + parseFloat(grupa) / 100) * 100) / 100;
+                  this.output.push({
+                    kod: kod,
+                    opis: opis,
+                    cena: cena
+                  });
+                }
+              } catch (err) {
+                _iterator6.e(err);
+              } finally {
+                _iterator6.f();
+              }
+            }
+          } catch (err) {
+            _iterator5.e(err);
+          } finally {
+            _iterator5.f();
+          }
+        }
+      } catch (err) {
+        _iterator4.e(err);
+      } finally {
+        _iterator4.f();
+      }
+    },
+    generateBiale: function generateBiale() {
+      this.output.push({
+        kod: 'PG_5862_B_S',
+        opis: 'skrzydło 5862 92 / 74 MM białe usz.szara',
+        cena: '7,79'
+      });
+      this.output.push({
+        kod: 'PG_8036_B_S',
+        opis: 'szpros konstrukcyjny 8036 66 / 74 MM usz.szara ',
+        cena: '4,73'
+      });
+      this.output.push({
+        kod: 'PG_5861_B',
+        opis: 'profil maskujący Smoovio białe 8 / 63 MM  ',
+        cena: '2,32'
+      });
+      this.output.push({
+        kod: 'PG_5869_B',
+        opis: 'profil wyrównujący Smoovio białe 19,5 / 57 MM  ',
+        cena: '2,99'
+      });
+
+      var _iterator7 = _createForOfIteratorHelper(this.profile),
+          _step7;
+
+      try {
+        for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+          var profil = _step7.value;
+          var kod = "PG_".concat(profil.kod, "_B");
+          var opis = "".concat(profil.opis, " ").concat(profil.kod, " bia\u0142e usz.czarna");
+          var cena = "".concat(profil.cena.biale);
+          this.output.push({
+            kod: kod,
+            opis: opis,
+            cena: cena
+          });
+        }
+      } catch (err) {
+        _iterator7.e(err);
+      } finally {
+        _iterator7.f();
+      }
+    },
+    generateListwy: function generateListwy() {
+      var kolory = [// {kod:'B',opis:'białe'},
+      {
+        kod: 'D',
+        opis: 'dekor'
+      }];
+
+      var _iterator8 = _createForOfIteratorHelper(this.listwy),
+          _step8;
+
+      try {
+        for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+          var listwa = _step8.value;
+
+          var _iterator9 = _createForOfIteratorHelper(kolory),
+              _step9;
+
+          try {
+            for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+              var kolor = _step9.value;
+
+              var _iterator10 = _createForOfIteratorHelper(this.grupy),
+                  _step10;
+
+              try {
+                for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+                  var grupa = _step10.value;
+                  var kod = "PG_".concat(listwa.kod, "_").concat(kolor.kod, "_").concat(grupa);
+                  var opis = "Listwa ".concat(listwa.kod, " ").concat(kolor.opis, " usz.czarna ").concat(grupa, " %");
+                  var cenabase = listwa.cena.kolor;
+                  var cena = Math.round(parseFloat(cenabase.replace(',', '.')) * (1 + parseFloat(grupa) / 100) * 100) / 100;
+                  this.output.push({
+                    kod: kod,
+                    opis: opis,
+                    cena: cena
+                  });
+                }
+              } catch (err) {
+                _iterator10.e(err);
+              } finally {
+                _iterator10.f();
+              }
+            }
+          } catch (err) {
+            _iterator9.e(err);
+          } finally {
+            _iterator9.f();
+          }
+        }
+      } catch (err) {
+        _iterator8.e(err);
+      } finally {
+        _iterator8.f();
+      }
+    },
+    generateListwyBiale: function generateListwyBiale() {
+      var kolory = [{
+        kod: 'B',
+        opis: 'białe'
+      } // {kod:'D',opis:'decco'}
+      ];
+      var uszczelki = [{
+        kod: 'S',
+        opis: 'usz.szara'
+      }, {
+        kod: 'C',
+        opis: 'usz.czarna'
+      }];
+
+      var _iterator11 = _createForOfIteratorHelper(this.listwy),
+          _step11;
+
+      try {
+        for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+          var listwa = _step11.value;
+
+          var _iterator12 = _createForOfIteratorHelper(kolory),
+              _step12;
+
+          try {
+            for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
+              var kolor = _step12.value;
+
+              var _iterator13 = _createForOfIteratorHelper(uszczelki),
+                  _step13;
+
+              try {
+                for (_iterator13.s(); !(_step13 = _iterator13.n()).done;) {
+                  var uszczelka = _step13.value;
+                  var kod = "PG_".concat(listwa.kod, "_").concat(kolor.kod, "_").concat(uszczelka.kod);
+                  var opis = "Listwa ".concat(listwa.kod, " ").concat(kolor.opis, " ").concat(uszczelka.opis);
+                  var cena = 0;
+
+                  if (uszczelka.kod == 'S') {
+                    cena = listwa.cena.bialeszara;
+                  }
+
+                  if (uszczelka.kod == 'C') {
+                    cena = listwa.cena.bialeczarna;
+                  }
+
+                  this.output.push({
+                    kod: kod,
+                    opis: opis,
+                    cena: cena
+                  });
+                }
+              } catch (err) {
+                _iterator13.e(err);
+              } finally {
+                _iterator13.f();
+              }
+            }
+          } catch (err) {
+            _iterator12.e(err);
+          } finally {
+            _iterator12.f();
+          }
+        }
+      } catch (err) {
+        _iterator11.e(err);
+      } finally {
+        _iterator11.f();
+      }
+    },
     copy: function copy() {
       this.selectElementContents(document.getElementById('tabela'));
     }
   },
   mounted: function mounted() {
     var self = this;
-    this.getData();
+    this.generateBiale();
+    this.generate2();
+    this.generate();
+    this.generateListwyBiale();
+    this.generateListwy(); // this.generateBiale()
+
     console.log(parseFloat('2.25'));
   }
 });
@@ -7006,28 +7191,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\np[data-v-93f1b4d0] {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    font-weight: bold;\n}\ntd[data-v-93f1b4d0] {\r\n    border: 1px black solid;\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css&":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css& ***!
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css& ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -7037,7 +7203,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\np[data-v-7f8e26d6] {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    font-weight: bold;\n}\ntd[data-v-7f8e26d6] {\r\n    border: 1px black solid;\n}\r\n", ""]);
+exports.push([module.i, "\np[data-v-fb798a88] {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    font-weight: bold;\n}\ntd[data-v-fb798a88] {\r\n    border: 1px black solid;\n}\r\n", ""]);
 
 // exports
 
@@ -38154,45 +38320,15 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css&":
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css& ***!
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -38845,84 +38981,9 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListwyGenerator.vue?vue&type=template&id=93f1b4d0&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ListwyGenerator.vue?vue&type=template&id=93f1b4d0&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "button",
-      {
-        on: {
-          click: function($event) {
-            return _vm.copy()
-          }
-        }
-      },
-      [_vm._v("zaznacz tabelę")]
-    ),
-    _vm._v(" "),
-    _c("table", { attrs: { id: "tabela" } }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.output, function(elem) {
-          return _c("tr", [
-            _c("td", [
-              _vm._v(
-                "\r\n                    " +
-                  _vm._s(elem.kod) +
-                  "\r\n\r\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(elem.opis))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(elem.cena))])
-          ])
-        }),
-        0
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("td", [_vm._v("Kod")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Opis")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Cena")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileGenerator.vue?vue&type=template&id=7f8e26d6&scoped=true&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SmoovioGenerator.vue?vue&type=template&id=fb798a88&scoped=true&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProfileGenerator.vue?vue&type=template&id=7f8e26d6&scoped=true& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SmoovioGenerator.vue?vue&type=template&id=fb798a88&scoped=true& ***!
   \*******************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -51203,8 +51264,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component('profilegenerator', __webpack_require__(/*! ./components/ProfileGenerator.vue */ "./resources/js/components/ProfileGenerator.vue")["default"]);
-Vue.component('listwygenerator', __webpack_require__(/*! ./components/ListwyGenerator.vue */ "./resources/js/components/ListwyGenerator.vue")["default"]);
+Vue.component('smooviogenerator', __webpack_require__(/*! ./components/SmoovioGenerator.vue */ "./resources/js/components/SmoovioGenerator.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51331,105 +51391,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/ListwyGenerator.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/ListwyGenerator.vue ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ListwyGenerator_vue_vue_type_template_id_93f1b4d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListwyGenerator.vue?vue&type=template&id=93f1b4d0&scoped=true& */ "./resources/js/components/ListwyGenerator.vue?vue&type=template&id=93f1b4d0&scoped=true&");
-/* harmony import */ var _ListwyGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListwyGenerator.vue?vue&type=script&lang=js& */ "./resources/js/components/ListwyGenerator.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ListwyGenerator_vue_vue_type_style_index_0_id_93f1b4d0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css& */ "./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _ListwyGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ListwyGenerator_vue_vue_type_template_id_93f1b4d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ListwyGenerator_vue_vue_type_template_id_93f1b4d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "93f1b4d0",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ListwyGenerator.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/ListwyGenerator.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/ListwyGenerator.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ListwyGenerator.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListwyGenerator.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css&":
-/*!**************************************************************************************************************!*\
-  !*** ./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css& ***!
-  \**************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_style_index_0_id_93f1b4d0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListwyGenerator.vue?vue&type=style&index=0&id=93f1b4d0&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_style_index_0_id_93f1b4d0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_style_index_0_id_93f1b4d0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_style_index_0_id_93f1b4d0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_style_index_0_id_93f1b4d0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_style_index_0_id_93f1b4d0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/ListwyGenerator.vue?vue&type=template&id=93f1b4d0&scoped=true&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/ListwyGenerator.vue?vue&type=template&id=93f1b4d0&scoped=true& ***!
-  \************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_template_id_93f1b4d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ListwyGenerator.vue?vue&type=template&id=93f1b4d0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListwyGenerator.vue?vue&type=template&id=93f1b4d0&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_template_id_93f1b4d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListwyGenerator_vue_vue_type_template_id_93f1b4d0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/ProfileGenerator.vue":
+/***/ "./resources/js/components/SmoovioGenerator.vue":
 /*!******************************************************!*\
-  !*** ./resources/js/components/ProfileGenerator.vue ***!
+  !*** ./resources/js/components/SmoovioGenerator.vue ***!
   \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ProfileGenerator_vue_vue_type_template_id_7f8e26d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProfileGenerator.vue?vue&type=template&id=7f8e26d6&scoped=true& */ "./resources/js/components/ProfileGenerator.vue?vue&type=template&id=7f8e26d6&scoped=true&");
-/* harmony import */ var _ProfileGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfileGenerator.vue?vue&type=script&lang=js& */ "./resources/js/components/ProfileGenerator.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _ProfileGenerator_vue_vue_type_style_index_0_id_7f8e26d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css& */ "./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css&");
+/* harmony import */ var _SmoovioGenerator_vue_vue_type_template_id_fb798a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SmoovioGenerator.vue?vue&type=template&id=fb798a88&scoped=true& */ "./resources/js/components/SmoovioGenerator.vue?vue&type=template&id=fb798a88&scoped=true&");
+/* harmony import */ var _SmoovioGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SmoovioGenerator.vue?vue&type=script&lang=js& */ "./resources/js/components/SmoovioGenerator.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _SmoovioGenerator_vue_vue_type_style_index_0_id_fb798a88_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css& */ "./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -51440,66 +51413,66 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _ProfileGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ProfileGenerator_vue_vue_type_template_id_7f8e26d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ProfileGenerator_vue_vue_type_template_id_7f8e26d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _SmoovioGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SmoovioGenerator_vue_vue_type_template_id_fb798a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SmoovioGenerator_vue_vue_type_template_id_fb798a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "7f8e26d6",
+  "fb798a88",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/ProfileGenerator.vue"
+component.options.__file = "resources/js/components/SmoovioGenerator.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/ProfileGenerator.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/SmoovioGenerator.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
-  !*** ./resources/js/components/ProfileGenerator.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/SmoovioGenerator.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileGenerator.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileGenerator.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SmoovioGenerator.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SmoovioGenerator.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css&":
+/***/ "./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css&":
 /*!***************************************************************************************************************!*\
-  !*** ./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css& ***!
+  !*** ./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css& ***!
   \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_style_index_0_id_7f8e26d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileGenerator.vue?vue&type=style&index=0&id=7f8e26d6&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_style_index_0_id_7f8e26d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_style_index_0_id_7f8e26d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_style_index_0_id_7f8e26d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_style_index_0_id_7f8e26d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_style_index_0_id_7f8e26d6_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_style_index_0_id_fb798a88_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SmoovioGenerator.vue?vue&type=style&index=0&id=fb798a88&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_style_index_0_id_fb798a88_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_style_index_0_id_fb798a88_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_style_index_0_id_fb798a88_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_style_index_0_id_fb798a88_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_style_index_0_id_fb798a88_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/components/ProfileGenerator.vue?vue&type=template&id=7f8e26d6&scoped=true&":
+/***/ "./resources/js/components/SmoovioGenerator.vue?vue&type=template&id=fb798a88&scoped=true&":
 /*!*************************************************************************************************!*\
-  !*** ./resources/js/components/ProfileGenerator.vue?vue&type=template&id=7f8e26d6&scoped=true& ***!
+  !*** ./resources/js/components/SmoovioGenerator.vue?vue&type=template&id=fb798a88&scoped=true& ***!
   \*************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_template_id_7f8e26d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileGenerator.vue?vue&type=template&id=7f8e26d6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileGenerator.vue?vue&type=template&id=7f8e26d6&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_template_id_7f8e26d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_template_id_fb798a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SmoovioGenerator.vue?vue&type=template&id=fb798a88&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SmoovioGenerator.vue?vue&type=template&id=fb798a88&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_template_id_fb798a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileGenerator_vue_vue_type_template_id_7f8e26d6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SmoovioGenerator_vue_vue_type_template_id_fb798a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -51523,8 +51496,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\BOBKOR\Desktop\generacjaprofili\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\BOBKOR\Desktop\generacjaprofili\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\BOBKOR\Desktop\smoovio\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\BOBKOR\Desktop\smoovio\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

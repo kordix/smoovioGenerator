@@ -14,7 +14,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return Profile::all();
+        //return Profile::all();
+        return Profile::whereIn('kod',['8220','8221','8226','8227','8224','8225','8320','8322','8326','8327'])->get();
+        
     }
 
     /**
